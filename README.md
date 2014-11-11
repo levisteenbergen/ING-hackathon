@@ -1,2 +1,2 @@
-ING-hachathon
+ING-hackathon
 =============

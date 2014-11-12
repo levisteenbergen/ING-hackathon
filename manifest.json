@@ -9,5 +9,8 @@
     	// "default_icon" : "intercom_logo.png",
     	"default_title" : "You're at Intercom page!",
     	"default_popup": "popup.html"
-  	}
+  	},
+    "permissions": [
+        "storage"
+    ]
 }

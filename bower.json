@@ -1,0 +1,16 @@
+{
+  "name": "ING-hackathon",
+  "version": "0.0.1",
+  "homepage": "https://github.com/levisteenbergen/ING-hackathon",
+  "authors": [
+    "dinkelburg <ruben@dinkelburg.nl>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

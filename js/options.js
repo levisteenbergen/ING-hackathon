@@ -1,6 +1,7 @@
 // Saves options to chrome.storage
 function save_options() {
-    var nrOfTransShown = $('number-of-transactions').value;
+    var nrOfTransShown = document.getElementById('number-of-transactions').value;
+    console.log(nrOfTransShown);
     chrome.storage.sync.set({
         numberOfTransactions: nrOfTransShown
     }, function () {

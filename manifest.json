@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "Openbank",
+    "description": "Show your openbank information!",
+    "version": "0.0.1",
+    "options_page": "options.html",
+    "browser_action" :
+  	{
+    	// "default_icon" : "intercom_logo.png",
+    	"default_title" : "You're at Intercom page!",
+    	"default_popup": "popup.html"
+  	}
+}

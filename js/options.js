@@ -3,9 +3,6 @@ var Options = {
         numberOfTransactions: 4,
         limitNotification: false
     },
-    initialise: function () {
-        chrome.storage.sync.set(Options.defaultOptions);
-    },
     saveOptions: function () {
         console.log($('#limitNotification').is(':checked'));
         chrome.storage.sync.set({
@@ -18,6 +15,11 @@ var Options = {
             setTimeout(function () {
                 status.empty();
             }, 750);
+        });
+    },
+    getOptions: function(success) {
+        chrome.storage.sync.get(Options.defaultOptions, function (items) {
+            success(items);
         });
     },
     restoreOptions: function () {

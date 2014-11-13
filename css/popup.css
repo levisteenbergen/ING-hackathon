@@ -15,6 +15,10 @@
 	margin: 20px auto 20px auto;
 }
 
+#beer {
+	font-size: 18px;
+}
+
 #price-container {
 	float:left;
 	width: 100%;

@@ -19,7 +19,7 @@ var exampleTransactions = {
       "label": "unknown"
     },
     "amount": {
-      "value": 1,
+      "value": 2,
       "currency": {
         "code": "EUR",
         "label": "unknown"
@@ -51,7 +51,7 @@ var exampleTransactions = {
       "label": "unknown"
     },
     "amount": {
-      "value": 1,
+      "value": 3,
       "currency": {
         "code": "EUR",
         "label": "unknown"
@@ -1406,6 +1406,7 @@ var products = {
   ]
 };
 var numberOfTrans;
+var status = "euro";
 
 function showTransactions(transactions, numberOfTransactions) {
   var transaction,
@@ -1433,13 +1434,23 @@ function showTransactions(transactions, numberOfTransactions) {
 function showCurrentAmount (products) {
   $('#price').empty();
   $('#price').html("€" + products.list[0].availableBalance.value);
+  $('#beer').empty();
+  $('#beer').html($("<img>", {src: "img/beer.png"})); 
+  status = "euro";
 }
+
+function showBeerAmount (products) {
+  $('#price').empty();
+  $('#price').html(Math.ceil(products.list[0].availableBalance.value / 1.5)  + " beer"); 
+  $('#beer').empty();
+  $('#beer').html($("<img>", {src: "img/euro.png"})); 
+  status = "beer";
+}
+
 
 window.onload = function () {
 
-  Options.initialise();
-
-  chrome.storage.sync.get(function(items){
+  Options.getOptions(function(items){
     numberOfTrans = Number(items.numberOfTransactions);
     showTransactions(exampleTransactions, (numberOfTrans));
   });
@@ -1452,5 +1463,13 @@ window.onload = function () {
   $("#btn-settings").click(function(){
     chrome.tabs.create({url: "options.html"});
   });
+
+  $("#beer").click(function () {
+    if(status == "euro"){
+      showBeerAmount(products); 
+    } else {
+      showCurrentAmount(products);
+    }
+  })
 }
 

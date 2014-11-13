@@ -3,7 +3,8 @@ h1 {
 }
 
 #container {
-	width: 100%;
+	margin-left: 10%;
+	width: 80%;
 }
 
 #header {
@@ -100,8 +101,7 @@ tr:last-child > td {
 
 #price-container {
 	float:left;
-	margin-left: 10%;
-	width: 80%;
+	width: 100%;
 	font-size: 20px;
 	border-bottom: 1px solid #DDD;	
 	padding: 20px 0px;
@@ -109,8 +109,7 @@ tr:last-child > td {
 
 #transfers-container {
 	float:left;
-	margin-left: 10%;
-	width: 80%;
+	width: 100%;
 	border-bottom: 1px solid #DDD;
 }
 

@@ -1407,7 +1407,7 @@ var products = {
 };
 var numberOfTrans;
 
-function showTransactions(transactions, numberOfTransactions) {
+function showTransactions(transactions) {
   var transaction,
     indicatorContainer,
     indicator,
@@ -1415,19 +1415,12 @@ function showTransactions(transactions, numberOfTransactions) {
     name,
     date,
     description;
-  if (transactions.list.length < numberOfTransactions) {
-    numberOfTransactions = transactions.list.length;
-  }
+
+    console.log(transactions.list.length);
 
   $('#transfers-table').empty();
-  $('#transfers-table').append("<tr>
-                    <th></th>
-                    <th>Price</th>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Description</th>
-                </tr>");
-  for (var i = 0; i < numberOfTransactions; i++) {
+  $('#transfers-table').append("<tr><th></th><th>Price</th><th>Name</th><th>Date</th><th>Description</th></tr>");
+  for (var i = 0; i < transactions.list.length; i++) {
     transaction = $("<tr>");
     $('#transfers-table').append(transaction);
     if (transactions.list[i].direction.code === "Debit") {
@@ -1444,7 +1437,7 @@ function showTransactions(transactions, numberOfTransactions) {
 
     name = $("<td>", {class: "name", text: transactions.list[i].counterpartProductId});
     amount = $("<td>", {class: "price", text: "€" + transactions.list[i].amount.value.toFixed(2)});
-    date = $("<td>", {class: "date", text: transactions.list[i].effectiveDate.datetime});
+    date = $("<td>", {class: "date", text: transactions.list[i].effectiveDate.datetime.substr(0, 10)});
     description = $("<td>", {class: "description", text: transactions.list[i].description});
     $(transaction).append(indicatorContainer, amount, name, date, description);
   };
@@ -1456,9 +1449,8 @@ function showCurrentAmount (products) {
 }
 
 window.onload = function () { 
-  chrome.storage.sync.get(function(items){
-    numberOfTrans = Number(items.numberOfTransactions);
-    showTransactions(exampleTransactions, (numberOfTrans));
-  });
+
+  showTransactions(exampleTransactions);
+
   showCurrentAmount(products);
 }

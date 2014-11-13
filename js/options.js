@@ -4,7 +4,7 @@ var Options = {
         limitNotification: false
     },
     initialise: function () {
-        chrome.storage.sync.set(defaultOptions);
+        chrome.storage.sync.set(Options.defaultOptions);
     },
     saveOptions: function () {
         console.log($('#limitNotification').is(':checked'));
@@ -21,10 +21,7 @@ var Options = {
         });
     },
     restoreOptions: function () {
-        chrome.storage.sync.get({
-            numberOfTransactions: 4,
-            limitNotification: false
-        }, function (items) {
+        chrome.storage.sync.get(Options.defaultOptions, function (items) {
             $('#numberOfTransactions').val(items.numberOfTransactions);
             $('#limitNotification').prop('checked', items.limitNotification);
         });

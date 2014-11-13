@@ -21,22 +21,21 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Transacties</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container" id="options">
+        <div class="container">
             <div class="row">
-                <form class="form-horizontal">
+                <form id="options" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-xs-2 control-label">
                             <label for="number-of-transactions">
                                 Transaction count
                             </label>
                         </div>
-                        <div class="col-xs-10">
-                            <input name="number-of-transactions" id="number-of-transactions" type="number" class="form-control" placeholder="">
+                        <div class="col-xs-4">
+                            <input name="numberOfTransactions" id="numberOfTransactions" type="number" class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -45,15 +44,16 @@
                                 Limiet
                             </label>
                         </div>
-                        <div class="col-xs-10 control-label">
-                        	Ja<input type="checkbox" />
+                        <div class="col-xs-4 control-label">
+                        	Ja<input type="checkbox" name="limitNotification" id="limitNotification"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <button id="save" type="button" class="btn btn-success">Success</button>
+                            <button id="save" type="submit" class="btn btn-success">Success</button>
                         </div>
                     </div>
+                    <div id="status"></div>
                 </form>
             </div>
         </div>

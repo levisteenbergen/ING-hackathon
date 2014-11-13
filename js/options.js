@@ -1,27 +1,37 @@
-// Saves options to chrome.storage
-function save_options() {
-    var nrOfTransShown = document.getElementById('number-of-transactions').value;
-    console.log(nrOfTransShown);
-    chrome.storage.sync.set({
-        numberOfTransactions: nrOfTransShown
-    }, function () {
-        // Update status to let user know options were saved.
-        //var status = document.getElementById('status');
-        //status.textContent = 'Options saved.';
-        setTimeout(function () {
-            //status.textContent = '';
-        }, 750);
-    });
+var Options = {
+    defaultOptions: {
+        numberOfTransactions: 4,
+        limitNotification: false
+    },
+    initialise: function () {
+        chrome.storage.sync.set(Options.defaultOptions);
+    },
+    saveOptions: function () {
+        console.log($('#limitNotification').is(':checked'));
+        chrome.storage.sync.set({
+            numberOfTransactions: $('#numberOfTransactions').val(),
+            limitNotification: $('#limitNotification').is(':checked')
+        }, function () {
+            // Update status to let user know options were saved.
+            var status = $('#status');
+            status.text('Opgeslagen')
+            setTimeout(function () {
+                status.empty();
+            }, 750);
+        });
+    },
+    restoreOptions: function () {
+        chrome.storage.sync.get(Options.defaultOptions, function (items) {
+            $('#numberOfTransactions').val(items.numberOfTransactions);
+            $('#limitNotification').prop('checked', items.limitNotification);
+        });
+    }
 }
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
-function restore_options() {
-    // Use default value color = 'red' and likesColor = true.
-    chrome.storage.sync.get({
-        numberOfTransactions: 4
-    }, function (items) {
-        document.getElementById('number-of-transactions').value = items.numberOfTransactions;
-    });
-}
-document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click', save_options);
+document.addEventListener('DOMContentLoaded', Options.restoreOptions);
+
+
+$("#options").submit(function (e) {
+    e.preventDefault();
+    Options.saveOptions();
+    return false;
+})

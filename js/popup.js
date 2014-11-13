@@ -1435,6 +1435,10 @@ function showCurrentAmount (products) {
   $('#price').html("€" + products.list[0].availableBalance.value);
 }
 
+function showBeerAmount (products) {
+  $('#beer').empty();
+  $('#price').html("€" + products.list[0].availableBalance.value / 1.5); 
+}
 
 window.onload = function () {
   

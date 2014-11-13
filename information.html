@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/information.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/information.css" /> 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 48px;
+        font-weight: 300;
+      }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="logo-container">
+            <div id="logo"></div>
+        </div>
+        <div id="price-container">
+            <div id="price">Huidige saldo: €2332,89</div>
+        </div>
+        <div id="transfers-container">
+            <div class="transfer">
+                <div class="plus"></div>
+                <p class="price">€232,00</p>
+                <p class="name">Levi Steenbergen</p>
+            </div>
+            <div class="transfer">
+                <div class="minus"></div>
+                <p class="price">€10,00</p>
+                <p class="name">Esra Hofstede</p>
+            </div>
+            <div class="transfer">
+                <div class="minus"></div>
+                <p class="price">€32,00</p>
+                <p class="name">Ruben Dinkelman</p>
+            </div>
+            <div class="transfer">
+                <div class="plus"></div>
+                <p class="price">€24,00</p>
+                <p class="name">Bobby bouwman</p>
+            </div>
+        </div>
+        <div id="options-container">
+            <input type="submit" value="Meer informatie" id="options" />
+            <input type="submit" value="Instellingen" id="options" />
+        </div>
+    </div>
+</body>
+</html>

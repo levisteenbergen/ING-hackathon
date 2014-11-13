@@ -14,358 +14,6 @@ var exampleTransactions = {
       "label": "unknown"
     },
     "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 3,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 1,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
     "description": "14-10-14 17:31 GELDAUTOMAAT ATM AMSTR LEIDSCHEPLEIN AMSTER",
     "currency": {
       "code": "EUR",
@@ -406,6 +54,41 @@ var exampleTransactions = {
     },
     "amount": {
       "value": 120.65,
+      "currency": {
+        "code": "EUR",
+        "label": "unknown"
+      }
+    },
+    "effectiveDate": {
+      "datetime": "2014-11-11T01:00:00.000+01:00"
+    },
+    "accountingDate": {
+      "datetime": "2014-11-11T00:00:00.000+01:00"
+    }
+  }, {
+    "productId": "T29521179",
+    "productIdentification": "T29521179",
+    "transactionType": {
+      "code": "Credit",
+      "label": "unknown"
+    },
+    "transactionSubType": {
+      "code": "SD",
+      "label": "unknown"
+    },
+    "direction": {
+      "code": "Credit",
+      "label": "unknown"
+    },
+    "counterpartProductId": "NL68INGX0001882829",
+    "counterpartProductIdentification": "T29521179",
+    "description": "VAN Betaalrekening",
+    "currency": {
+      "code": "EUR",
+      "label": "unknown"
+    },
+    "amount": {
+      "value": 5013,
       "currency": {
         "code": "EUR",
         "label": "unknown"

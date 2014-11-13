@@ -1441,7 +1441,9 @@ function showBeerAmount (products) {
 }
 
 window.onload = function () {
-  
+
+  Options.initialise();
+
   chrome.storage.sync.get(function(items){
     numberOfTrans = Number(items.numberOfTransactions);
     showTransactions(exampleTransactions, (numberOfTrans));

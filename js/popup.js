@@ -1407,6 +1407,7 @@ var products = {
 };
 var numberOfTrans;
 var status = "euro";
+var unread = 0;
 
 function showTransactions(transactions, numberOfTransactions) {
   var transaction,
@@ -1447,6 +1448,23 @@ function showBeerAmount (products) {
   status = "beer";
 }
 
+function addTransaction (transaction) {
+  if(transaction.direction.code == "Credit"){
+    products.list[0].availableBalance.value = products.list[0].availableBalance.value - transaction.amount.value;
+  } else {
+    products.list[0].availableBalance.value = products.list[0].availableBalance.value + transaction.amount.value; 
+  }
+  console.log(exampleTransactions);
+  exampleTransactions.list.unshift(transaction);
+  console.log(exampleTransactions);
+  console.log("added");
+  Options.getOptions(function(items){
+    numberOfTrans = Number(items.numberOfTransactions);
+    showTransactions(exampleTransactions, (numberOfTrans));
+  });
+  showCurrentAmount(products);
+  chrome.browserAction.setBadgeText({text: "1"}); // We have 10+ unread items.
+}
 
 window.onload = function () {
 
@@ -1470,6 +1488,41 @@ window.onload = function () {
     } else {
       showCurrentAmount(products);
     }
-  })
+  });
+
+  setTimeout(function(){addTransaction({
+    "productId": "NL68INGX0001882829",
+    "transactionType": {
+      "code": "Debit",
+      "label": "unknown"
+    },
+    "transactionSubType": {
+      "code": "SWNP",
+      "label": "unknown"
+    },
+    "direction": {
+      "code": "Credit",
+      "label": "unknown"
+    },
+    "counterpartProductId": "NL11INGB0005226376",
+    "description": "7-11-2014 15:10 BETAALAUTOMAAT INTERSPORT VONDELPARK AMSTERDAM 011 591480 4WY8GS ING BANK NV PASTRANSACTIES",
+    "currency": {
+      "code": "EUR",
+      "label": "unknown"
+    },
+    "amount": {
+      "value": 120.65,
+      "currency": {
+        "code": "EUR",
+        "label": "unknown"
+      }
+    },
+    "effectiveDate": {
+      "datetime": "2014-11-11T01:00:00.000+01:00"
+    },
+    "accountingDate": {
+      "datetime": "2014-11-11T00:00:00.000+01:00"
+    }
+  })}, 6000);
 }
 

@@ -79,9 +79,9 @@
 	padding: 10px 0px 0px 0px;
 }
 
-.options { 
+#options-container > .btn { 
 	float: left;
-	width: 50%;
+	width: 145px;
 	border: none;
 	height: 35px;
 	color: #FFF;
@@ -89,6 +89,35 @@
 	border-radius: 3px;
 }
 
-#options:hover {
+#options-container > .btn:first-child { 
+	margin-right:5px;
+}
+
+#options-container > .btn:last-child { 
+	margin-left:5px;
+}
+
+#options-container > .btn:hover {
 	background-color: #e0701b;
+}
+
+#options-container > .btn > #info {
+	float: left;
+	margin: 9px 0px 0px 3px;
+	width:16px;
+	height:16px;
+	background-image: url("../img/info.png");
+}
+
+#options-container > .btn > #settings {
+	float: left;
+	margin: 9px 0px 0px 3px;
+	width:16px;
+	height:16px;
+	background-image: url("../img/settings.png");
+}
+
+#options-container p {
+	padding: 0px;
+	margin-top: 10px;
 }

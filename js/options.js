@@ -1,7 +1,8 @@
 var Options = {
     defaultOptions: {
         numberOfTransactions: 4,
-        limitNotification: false
+        limitNotification: false,
+        paymentUnit: "euro"
     },
     saveOptions: function () {
         console.log($('#limitNotification').is(':checked'));
@@ -9,9 +10,8 @@ var Options = {
             numberOfTransactions: $('#numberOfTransactions').val(),
             limitNotification: $('#limitNotification').is(':checked')
         }, function () {
-            // Update status to let user know options were saved.
             var status = $('#status');
-            status.text('Opgeslagen')
+            status.text('Opgeslagen');
             setTimeout(function () {
                 status.empty();
             }, 750);

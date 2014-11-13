@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>BankBuddy - options</title>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/information.js"></script>
@@ -18,6 +18,17 @@
 </head>
 <body>
     <div id="container">
+        <div id="header">
+            <a id="btn-settings" href="" value="Meer informatie" class="btn" >
+                <div id="settings"></div>
+                <p>Instellingen</p>
+            </a>
+            <div id="login">
+                <input type="text" name="user" placeholder="gebruikersnaam" />
+                <input type="password "name="password" placeholder="wachtwoord" />
+                <input type="submit" value="inloggen" />
+            </div>
+        </div>
         <div id="logo-container">
             <div id="logo"></div>
         </div>
@@ -25,30 +36,37 @@
             <div id="price">Huidige saldo: €2332,89</div>
         </div>
         <div id="transfers-container">
-            <div class="transfer">
-                <div class="plus"></div>
-                <p class="price">€232,00</p>
-                <p class="name">Levi Steenbergen</p>
-            </div>
-            <div class="transfer">
-                <div class="minus"></div>
-                <p class="price">€10,00</p>
-                <p class="name">Esra Hofstede</p>
-            </div>
-            <div class="transfer">
-                <div class="minus"></div>
-                <p class="price">€32,00</p>
-                <p class="name">Ruben Dinkelman</p>
-            </div>
-            <div class="transfer">
-                <div class="plus"></div>
-                <p class="price">€24,00</p>
-                <p class="name">Bobby bouwman</p>
-            </div>
-        </div>
-        <div id="options-container">
-            <input type="submit" value="Meer informatie" id="options" />
-            <input type="submit" value="Instellingen" id="options" />
+            <h1>Transacties</h1>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Prijs</th>
+                    <th>Naam</th>
+                    <th>Datum</th>
+                    <th>Beschrijving</th>
+                </tr>
+                <tr>
+                    <td><div class="plus"></div></td>
+                    <td class="price">€232,00</td>
+                    <td class="name">Levi Steenbergen</td>
+                    <td class="date">29-02-2012</td>
+                    <td class="description">Boodschappen betaling</td>
+                </tr>
+                <tr>
+                    <td><div class="plus"></div></td>
+                    <td class="price">€232,00</td>
+                    <td class="name">Levi Steenbergen</td>
+                    <td class="date">29-02-2012</td>
+                    <td class="description">Boodschappen betaling</td>
+                </tr>
+                <tr>
+                    <td><div class="plus"></div></td>
+                    <td class="price">€232,00</td>
+                    <td class="name">Levi Steenbergen</td>
+                    <td class="date">29-02-2012</td>
+                    <td class="description">Boodschappen betaling</td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>

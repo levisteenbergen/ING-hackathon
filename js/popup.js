@@ -1447,4 +1447,13 @@ window.onload = function () {
     showTransactions(exampleTransactions, (numberOfTrans));
   });
   showCurrentAmount(products);
+
+  $("#btn-info").click(function(){
+    chrome.tabs.create({url: "dashboard.html"});
+  });
+
+  $("#btn-settings").click(function(){
+    chrome.tabs.create({url: "options.html"});
+  });
 }
+

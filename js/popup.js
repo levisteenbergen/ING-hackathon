@@ -1450,7 +1450,7 @@ function showBeerAmount (products) {
 
 window.onload = function () {
 
-  options.getOptions(function(items){
+  Options.getOptions(function(items){
     numberOfTrans = Number(items.numberOfTransactions);
     showTransactions(exampleTransactions, (numberOfTrans));
   });

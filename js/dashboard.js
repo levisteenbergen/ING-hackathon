@@ -19,39 +19,7 @@ var exampleTransactions = {
       "label": "unknown"
     },
     "amount": {
-      "value": 2,
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  }, {
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 3,
+      "value": 1,
       "currency": {
         "code": "EUR",
         "label": "unknown"
@@ -84,6 +52,38 @@ var exampleTransactions = {
     },
     "amount": {
       "value": 1,
+      "currency": {
+        "code": "EUR",
+        "label": "unknown"
+      }
+    },
+    "effectiveDate": {
+      "datetime": "2014-11-11T01:00:00.000+01:00"
+    },
+    "accountingDate": {
+      "datetime": "2014-11-11T00:00:00.000+01:00"
+    }
+  }, {
+    "productId": "NL68INGX0001882829",
+    "transactionType": {
+      "code": "Debit",
+      "label": "unknown"
+    },
+    "transactionSubType": {
+      "code": "SWNP",
+      "label": "unknown"
+    },
+    "direction": {
+      "code": "Debit",
+      "label": "unknown"
+    },
+    "counterpartProductId": "NL11INGB0005226376",
+    "currency": {
+      "code": "EUR",
+      "label": "unknown"
+    },
+    "amount": {
+      "value": 3,
       "currency": {
         "code": "EUR",
         "label": "unknown"
@@ -1406,70 +1406,59 @@ var products = {
   ]
 };
 var numberOfTrans;
-var status = "euro";
 
 function showTransactions(transactions, numberOfTransactions) {
   var transaction,
+    indicatorContainer,
     indicator,
+    amount,
     name,
-    amount;
+    date,
+    description;
   if (transactions.list.length < numberOfTransactions) {
     numberOfTransactions = transactions.list.length;
   }
-  $('#transfers-container').empty();
+
+  $('#transfers-table').empty();
+  $('#transfers-table').append("<tr>
+                    <th></th>
+                    <th>Price</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </tr>");
   for (var i = 0; i < numberOfTransactions; i++) {
-    transaction = $("<div>", {class: "transfer"});
-    $('#transfers-container').append(transaction);
+    transaction = $("<tr>");
+    $('#transfers-table').append(transaction);
     if (transactions.list[i].direction.code === "Debit") {
       indicator = $("<div>", {class: "plus"});
     } else {
       indicator = $("<div>", {class: "minus"});
     }
-    name = $("<p>", {class: "name", text: transactions.list[i].counterpartProductId});
-    amount = $("<p>", {class: "price", text: "€" + transactions.list[i].amount.value.toFixed(2)});
-    $(transaction).append(indicator, name, amount);
+    indicatorContainer = $("<td>");
+    $(indicatorContainer).append(indicator);
+
+    if(transactions.list[i].description == undefined) {
+      transactions.list[i].description = ""
+    }
+
+    name = $("<td>", {class: "name", text: transactions.list[i].counterpartProductId});
+    amount = $("<td>", {class: "price", text: "€" + transactions.list[i].amount.value.toFixed(2)});
+    date = $("<td>", {class: "date", text: transactions.list[i].effectiveDate.datetime});
+    description = $("<td>", {class: "description", text: transactions.list[i].description});
+    $(transaction).append(indicatorContainer, amount, name, date, description);
   };
 }
 
 function showCurrentAmount (products) {
   $('#price').empty();
   $('#price').html("€" + products.list[0].availableBalance.value);
-  $('#beer').empty();
-  $('#beer').html($("<img>", {src: "img/beer.png"})); 
-  status = "euro";
 }
 
-function showBeerAmount (products) {
-  $('#price').empty();
-  $('#price').html(Math.ceil(products.list[0].availableBalance.value / 1.5)  + " beer"); 
-  $('#beer').empty();
-  $('#beer').html($("<img>", {src: "img/euro.png"})); 
-  status = "beer";
-}
-
-
-window.onload = function () {
-
-  options.getOptions(function(items){
+window.onload = function () { 
+  chrome.storage.sync.get(function(items){
     numberOfTrans = Number(items.numberOfTransactions);
     showTransactions(exampleTransactions, (numberOfTrans));
   });
   showCurrentAmount(products);
-
-  $("#btn-info").click(function(){
-    chrome.tabs.create({url: "dashboard.html"});
-  });
-
-  $("#btn-settings").click(function(){
-    chrome.tabs.create({url: "options.html"});
-  });
-
-  $("#beer").click(function () {
-    if(status == "euro"){
-      showBeerAmount(products); 
-    } else {
-      showCurrentAmount(products);
-    }
-  })
 }
-

@@ -1435,15 +1435,15 @@ function showCurrentAmount (products) {
   $('#price').empty();
   $('#price').html("€" + products.list[0].availableBalance.value);
   $('#beer').empty();
-  $('#beer').html($("<img>", {src: "img/beer.png"})); 
+  $('#beer').append($("<img>", {src: "img/euro.png"}), $("<p>", {text: "Wanna see something cool?"})); 
   status = "euro";
 }
 
 function showBeerAmount (products) {
   $('#price').empty();
-  $('#price').html(Math.ceil(products.list[0].availableBalance.value / 1.5)  + " beer"); 
+  $('#price').html(Math.ceil(products.list[0].availableBalance.value / 1.5)  + "x beer"); 
   $('#beer').empty();
-  $('#beer').html($("<img>", {src: "img/euro.png"})); 
+  $('#beer').append($("<img>", {src: "img/beer.png"}), $("<p>", {text: "Oh gosh its party time!"})); 
   status = "beer";
 }
 

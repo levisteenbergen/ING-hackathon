@@ -16,12 +16,20 @@
 }
 
 #beer {
-	font-size: 18px;
-	text-align: center;
+	margin: 12px 0px 0px 0px;
+	font-size: 14px;
+	text-align: left;
+}
+
+#beer p {
+	color:#DDD;
+	margin: 5px 0px 0px 40px;
 }
 
 #beer img {
-	max-width: 100px;
+	float:left;
+	margin-top: -5px;
+	max-width: 30px;
 	height: auto;
 }
 

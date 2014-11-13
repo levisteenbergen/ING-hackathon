@@ -1444,7 +1444,7 @@ function showBeerAmount (products) {
   $('#price').empty();
   $('#price').html(Math.ceil(products.list[0].availableBalance.value / 1.5)  + "x beer"); 
   $('#beer').empty();
-  $('#beer').append($("<img>", {src: "img/beer.png"}), $("<p>", {text: "Oh gosh its party time!"})); 
+  $('#beer').append($("<img>", {src: "img/beer.png"}), $("<p>", {text: "Oh gosh it's party time!"})); 
   status = "beer";
 }
 

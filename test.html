@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+	<script type="text/javascript">
+		chrome.identity.launchWebAuthFlow({
+			url: "https://apisandbox.ingdirect.es/authserver/oauth2/authorization?client_id=HomebankApp&redirect_uri=http://localhost&response_type=token&grant_type=implicit"
+			, function (response){
+				console.log(response);
+			})
+	</script>
+</body>
+</html>

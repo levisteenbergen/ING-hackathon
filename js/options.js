@@ -1,9 +1,11 @@
 // Saves options to chrome.storage
 function save_options() {
-    var nrOfTransShown = document.getElementById('number-of-transactions').value;
-    console.log(nrOfTransShown);
+
+    //console.log($("number-of-transactions"));
+    //var nrOfTransShown = $('#number-of-transactions').val();
+    console.log($('#limitNotification').val());
     chrome.storage.sync.set({
-        numberOfTransactions: nrOfTransShown
+        numberOfTransactions: $('#numberOfTransactions').val()
     }, function () {
         // Update status to let user know options were saved.
         //var status = document.getElementById('status');
@@ -19,9 +21,24 @@ function restore_options() {
     // Use default value color = 'red' and likesColor = true.
     chrome.storage.sync.get({
         numberOfTransactions: 4
+
     }, function (items) {
-        document.getElementById('number-of-transactions').value = items.numberOfTransactions;
+        $('#numberOfTransactions').val(items.numberOfTransactions);
     });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click', save_options);
+//document.getElementById('save').addEventListener('click', save_options
+
+
+// $("#save").click(function(){
+
+//   $("#options").submit();
+
+// });
+
+$("#options").submit(function(e){
+  e.preventDefault();
+  //console.log($(this));
+  save_options();
+  return false;
+})

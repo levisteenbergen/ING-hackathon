@@ -26,9 +26,9 @@
                 </div>
             </div>
         </nav>
-        <div class="container" id="options">
+        <div class="container">
             <div class="row">
-                <form class="form-horizontal">
+                <form id="options" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-xs-2 control-label">
                             <label for="number-of-transactions">
@@ -36,7 +36,7 @@
                             </label>
                         </div>
                         <div class="col-xs-10">
-                            <input name="number-of-transactions" id="number-of-transactions" type="number" class="form-control" placeholder="">
+                            <input name="numberOfTransactions" id="numberOfTransactions" type="number" class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -46,12 +46,12 @@
                             </label>
                         </div>
                         <div class="col-xs-10 control-label">
-                        	Ja<input type="checkbox" />
+                        	Ja<input type="checkbox" name="limitNotification" id="limitNotification"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <button id="save" type="button" class="btn btn-success">Success</button>
+                            <button id="save" type="submit" class="btn btn-success">Success</button>
                         </div>
                     </div>
                 </form>
@@ -61,5 +61,10 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/options.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="bower_components/jasmine/lib/jasmine-core/jasmine.css">
+        <script type="text/javascript" src="bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
+        <script type="text/javascript" src="bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+        <script type="text/javascript" src="bower_components/jasmine/lib/jasmine-core/boot.js"></script>
 </body>
 </html>

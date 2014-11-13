@@ -83,7 +83,7 @@ var exampleTransactions = {
       "label": "unknown"
     },
     "amount": {
-      "value": 1,
+      "value": 3,
       "currency": {
         "code": "EUR",
         "label": "unknown"
@@ -1409,24 +1409,44 @@ var numberOfTrans;
 
 function showTransactions(transactions, numberOfTransactions) {
   var transaction,
+    indicatorContainer,
     indicator,
+    amount,
     name,
-    amount;
+    date,
+    description;
   if (transactions.list.length < numberOfTransactions) {
     numberOfTransactions = transactions.list.length;
   }
-  $('#transfers-container').empty();
+
+  $('#transfers-table').empty();
+  $('#transfers-table').append("<tr>
+                    <th></th>
+                    <th>Price</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </tr>");
   for (var i = 0; i < numberOfTransactions; i++) {
-    transaction = $("<div>", {class: "transfer"});
-    $('#transfers-container').append(transaction);
+    transaction = $("<tr>");
+    $('#transfers-table').append(transaction);
     if (transactions.list[i].direction.code === "Debit") {
       indicator = $("<div>", {class: "plus"});
     } else {
       indicator = $("<div>", {class: "minus"});
     }
-    name = $("<p>", {class: "name", text: transactions.list[i].counterpartProductId});
-    amount = $("<p>", {class: "price", text: "€" + transactions.list[i].amount.value.toFixed(2)});
-    $(transaction).append(indicator, name, amount);
+    indicatorContainer = $("<td>");
+    $(indicatorContainer).append(indicator);
+
+    if(transactions.list[i].description == undefined) {
+      transactions.list[i].description = ""
+    }
+
+    name = $("<td>", {class: "name", text: transactions.list[i].counterpartProductId});
+    amount = $("<td>", {class: "price", text: "€" + transactions.list[i].amount.value.toFixed(2)});
+    date = $("<td>", {class: "date", text: transactions.list[i].effectiveDate.datetime});
+    description = $("<td>", {class: "description", text: transactions.list[i].description});
+    $(transaction).append(indicatorContainer, amount, name, date, description);
   };
 }
 
@@ -1435,22 +1455,10 @@ function showCurrentAmount (products) {
   $('#price').html("€" + products.list[0].availableBalance.value);
 }
 
-window.onload = function () {
-
-  Options.initialise();
-
+window.onload = function () { 
   chrome.storage.sync.get(function(items){
     numberOfTrans = Number(items.numberOfTransactions);
     showTransactions(exampleTransactions, (numberOfTrans));
   });
   showCurrentAmount(products);
-
-  $("#btn-info").click(function(){
-    chrome.tabs.create({url: "dashboard.html"});
-  });
-
-  $("#btn-settings").click(function(){
-    chrome.tabs.create({url: "options.html"});
-  });
 }
-

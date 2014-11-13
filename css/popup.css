@@ -17,6 +17,16 @@
 
 #beer {
 	font-size: 18px;
+	text-align: center;
+}
+
+#beer img {
+	max-width: 100px;
+	height: auto;
+}
+
+#beer img:hover {
+	cursor: pointer;
 }
 
 #price-container {

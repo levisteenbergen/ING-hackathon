@@ -107,6 +107,23 @@ tr:last-child > td {
 	padding: 20px 0px;
 }
 
+#price-container label {
+	width: 200px;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+#price-container input[type="text"] {
+	width: 30px;
+	padding: 5px 10px;
+	font-size: 18px;
+}
+
+#price-container input[type="checkbox"] {
+	width: 20px;
+	height: 15px;
+}
+
 #transfers-container {
 	float:left;
 	width: 100%;

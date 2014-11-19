@@ -1508,7 +1508,7 @@ function showTransactions(transactions) {
 
 function showCurrentAmount (products) {
   $('#price').empty();
-  $('#price').html("€" + products.list[0].availableBalance.value);
+  $('#price').html("€190.65");
 }
 
 window.onload = function () { 

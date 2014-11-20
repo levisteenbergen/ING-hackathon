@@ -32,7 +32,7 @@ var exampleTransactions = {
       "datetime": "2014-11-11T00:00:00.000+01:00"
     }
   }, {
-    "productId": "NL68INGX0001882829",
+    "productId": "NL68INGX00018828292",
     "transactionType": {
       "code": "Debit",
       "label": "unknown"
@@ -1354,60 +1354,56 @@ var exampleTransactions = {
   }]
 };
 var products = {
-  "list": [
-    {
-      "id": "NL68INGX0001882829",
-      "type": {
-        "code": "SDA",
-        "label": "This is an Account"
-      },
-      "subType": {
-        "code": "1100",
-        "label": "Label for 1100"
-      },
-      "customerDescription": "Koppe,Iris",
-      "currency": {
-        "code": "EUR",
-        "label": "unknown"
-      },
-      "availableBalance": {
-        "value": 38879.66,
-        "currency": {
-          "code": "EUR",
-          "label": "unknown"
-        }
-      },
-      "iban": "NL68INGX0001882829"
+  "list": [{
+    "id": "NL68INGX0001882829",
+    "type": {
+      "code": "SDA",
+      "label": "This is an Account"
     },
-    {
-      "id": "T29521179",
-      "type": {
-        "code": "SDA",
-        "label": "This is an Account"
-      },
-      "subType": {
-        "code": "1000",
-        "label": "Label for 1000"
-      },
-      "customerDescription": "Koppe,Iris",
+    "subType": {
+      "code": "1100",
+      "label": "Label for 1100"
+    },
+    "customerDescription": "Koppe,Iris",
+    "currency": {
+      "code": "EUR",
+      "label": "unknown"
+    },
+    "availableBalance": {
+      "value": 130.66,
       "currency": {
         "code": "EUR",
         "label": "unknown"
-      },
-      "availableBalance": {
-        "value": 5013,
-        "currency": {
-          "code": "EUR",
-          "label": "unknown"
-        }
-      },
-      "iban": "T29521179"
-    }
-  ]
+      }
+    },
+    "iban": "NL68INGX0001882829"
+  }, {
+    "id": "T29521179",
+    "type": {
+      "code": "SDA",
+      "label": "This is an Account"
+    },
+    "subType": {
+      "code": "1000",
+      "label": "Label for 1000"
+    },
+    "customerDescription": "Koppe,Iris",
+    "currency": {
+      "code": "EUR",
+      "label": "unknown"
+    },
+    "availableBalance": {
+      "value": 5013,
+      "currency": {
+        "code": "EUR",
+        "label": "unknown"
+      }
+    },
+    "iban": "T29521179"
+  }]
 };
 var numberOfTrans;
 var status = "euro";
-var unread = 0;
 
 function showTransactions(transactions, numberOfTransactions) {
   var transaction,
@@ -1419,15 +1415,27 @@ function showTransactions(transactions, numberOfTransactions) {
   }
   $('#transfers-container').empty();
   for (var i = 0; i < numberOfTransactions; i++) {
-    transaction = $("<div>", {class: "transfer"});
+    transaction = $("<div>", {
+      class: "transfer"
+    });
     $('#transfers-container').append(transaction);
     if (transactions.list[i].direction.code === "Debit") {
-      indicator = $("<div>", {class: "plus"});
+      indicator = $("<div>", {
+        class: "plus"
+      });
     } else {
-      indicator = $("<div>", {class: "minus"});
+      indicator = $("<div>", {
+        class: "minus"
+      });
     }
-    name = $("<p>", {class: "name", text: transactions.list[i].counterpartProductId});
-    amount = $("<p>", {class: "price", text: "€" + transactions.list[i].amount.value.toFixed(2)});
+    name = $("<p>", {
+      class: "name",
+      text: transactions.list[i].counterpartProductId
+    });
+    amount = $("<p>", {
+      class: "price",
+      text: "€" + transactions.list[i].amount.value.toFixed(2)
+    });
     $(transaction).append(indicator, name, amount);
   };
 }
@@ -1442,32 +1450,33 @@ function showCurrentAmount (products) {
 
 function showBeerAmount (products) {
   $('#price').empty();
-  $('#price').html(Math.ceil(products.list[0].availableBalance.value / 1.5)  + "x beer"); 
+  $('#price').html(Math.ceil(products.list[0].availableBalance.value / 2.1)  + "x beer"); 
   $('#beer').empty();
   $('#beer').append($("<img>", {src: "img/beer.png"}), $("<p>", {text: "Oh gosh it's party time!"})); 
   status = "beer";
 }
 
 function addTransaction (transaction) {
-  if(transaction.direction.code == "Credit"){
+  if (transaction.direction.code == "Credit") {
     products.list[0].availableBalance.value = products.list[0].availableBalance.value - transaction.amount.value;
   } else {
-    products.list[0].availableBalance.value = products.list[0].availableBalance.value + transaction.amount.value; 
+    products.list[0].availableBalance.value = products.list[0].availableBalance.value + transaction.amount.value;
   }
-  console.log(exampleTransactions);
   exampleTransactions.list.unshift(transaction);
-  console.log(exampleTransactions);
-  console.log("added");
-  Options.getOptions(function(items){
+  Options.getOptions(function (items) {
     numberOfTrans = Number(items.numberOfTransactions);
     showTransactions(exampleTransactions, (numberOfTrans));
   });
   showCurrentAmount(products);
-  chrome.browserAction.setBadgeText({text: "1"}); // We have 10+ unread items.
 }
 
 window.onload = function () {
-
+  chrome.storage.sync.set({
+    unread: 0
+  });
+  chrome.browserAction.setBadgeText({
+    text: ""
+  });
   Options.getOptions(function(items){
     numberOfTrans = Number(items.numberOfTransactions);
     showTransactions(exampleTransactions, (numberOfTrans));
@@ -1490,39 +1499,78 @@ window.onload = function () {
     }
   });
 
-  setTimeout(function(){addTransaction({
-    "productId": "NL68INGX0001882829",
-    "transactionType": {
-      "code": "Debit",
-      "label": "unknown"
-    },
-    "transactionSubType": {
-      "code": "SWNP",
-      "label": "unknown"
-    },
-    "direction": {
-      "code": "Credit",
-      "label": "unknown"
-    },
-    "counterpartProductId": "NL11INGB0005226376",
-    "description": "7-11-2014 15:10 BETAALAUTOMAAT INTERSPORT VONDELPARK AMSTERDAM 011 591480 4WY8GS ING BANK NV PASTRANSACTIES",
-    "currency": {
-      "code": "EUR",
-      "label": "unknown"
-    },
-    "amount": {
-      "value": 120.65,
+  setTimeout(function () {
+    addTransaction({
+      "productId": "NL68INGX0001882829",
+      "transactionType": {
+        "code": "Debit",
+        "label": "unknown"
+      },
+      "transactionSubType": {
+        "code": "SWNP",
+        "label": "unknown"
+      },
+      "direction": {
+        "code": "Debit",
+        "label": "unknown"
+      },
+      "counterpartProductId": "NL11INGB0005226376",
+      "description": "Studiefinanciering",
       "currency": {
         "code": "EUR",
         "label": "unknown"
+      },
+      "amount": {
+        "value": 110.65,
+        "currency": {
+          "code": "EUR",
+          "label": "unknown"
+        }
+      },
+      "effectiveDate": {
+        "datetime": "2014-11-11T01:00:00.000+01:00"
+      },
+      "accountingDate": {
+        "datetime": "2014-11-11T00:00:00.000+01:00"
       }
-    },
-    "effectiveDate": {
-      "datetime": "2014-11-11T01:00:00.000+01:00"
-    },
-    "accountingDate": {
-      "datetime": "2014-11-11T00:00:00.000+01:00"
-    }
-  })}, 6000);
+    })
+  }, 6000);
+
+  setTimeout(function () {
+    addTransaction({
+      "productId": "NL68INGX00018828294",
+      "transactionType": {
+        "code": "Debit",
+        "label": "unknown"
+      },
+      "transactionSubType": {
+        "code": "SWNP",
+        "label": "unknown"
+      },
+      "direction": {
+        "code": "Credit",
+        "label": "unknown"
+      },
+      "counterpartProductId": "NL11INGB0009733481",
+      "description": "7-11-2014 15:10 BETAALAUTOMAAT INTERSPORT VONDELPARK AMSTERDAM 011 591480 4WY8GS ING BANK NV PASTRANSACTIES",
+      "currency": {
+        "code": "EUR",
+        "label": "unknown"
+      },
+      "amount": {
+        "value": 50.66,
+        "currency": {
+          "code": "EUR",
+          "label": "unknown"
+        }
+      },
+      "effectiveDate": {
+        "datetime": "2014-11-11T01:00:00.000+01:00"
+      },
+      "accountingDate": {
+        "datetime": "2014-11-11T00:00:00.000+01:00"
+      }
+    })
+  }, 3000);
 }
 
